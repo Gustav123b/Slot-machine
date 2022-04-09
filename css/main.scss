@@ -1,0 +1,325 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
+:root {
+    --clr-bg: #17314e;
+    --clr-bg-400: #1f3b59;
+    --clr-bg-600: #11273e;
+
+    --clr-dark: #121217;
+    --clr-dark-2: #111111;
+    --clr-dark-3: #36373f;
+    --clr-dark-4: #414249;
+
+    --clr-dark-bg: #111a24; // 2b2d36
+    --clr-dark-bg-700: #090f16;
+    --clr-dark-bg-300: #494b56;
+    --clr-dark-bg-200: #777882;
+    --clr-dark-bg-100: #bfc0cb;
+
+    --clr-light: #d4c79b;
+    --clr-light-400: #e8dfc1;
+    --clr-light-300: #e1d4ab;
+
+    --clr-red-900: #18070b;
+    --clr-red-800: #3c2425;
+    --clr-red-600: #951f23;
+    --clr-bg-red: #8d2225;
+    --clr-red-400: #a52125;
+    --clr-red-300: #c02329;
+    --clr-red-200: #f63239;
+    --clr-red-100: #f94f55;
+
+    --clr-yellow: #f9c83a;
+    --clr-yellow-400: #fdd869;
+
+    --clr-white-80: rgba(255, 255, 255, 0.8);
+    --clr-white-70: rgba(255, 255, 255, 0.7);
+    --clr-white-40: rgba(255, 255, 255, 0.4);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--clr-bg);
+    font-family: "Poppins", sans-serif;
+}
+
+canvas {
+    background-color: var(--clr-dark-bg-700);
+    background-color: var(--clr-red-900);
+    border: 4px solid var(--clr-yellow);
+    z-index: 100;
+}
+
+a {
+    color: var(--clr-white-40);
+}
+
+.space-between {
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    padding-top: 0.8em;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+}
+
+/* h2 {
+    font-weight: normal;
+    color: var(--clr-white-70);
+    font-size: 1.2rem;
+} */
+
+h2 {
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+}
+
+h3 {
+    color: var(--clr-white-80);
+    text-align: center;
+}
+
+.space-between > div {
+    width: 15vw;
+}
+
+.middle {
+    width: 70vw !important;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2em;
+}
+
+.slot-bet-section {
+    position: relative;
+    padding: 0 2em;
+    width: clamp(300px, 100%, 1000px);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    /* Glassmorphism */
+    background: rgba(18, 18, 19, 0.9);
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+    backdrop-filter: blur(5px);
+}
+
+.money-am {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.money-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+}
+
+.bet-container {
+    position: relative;
+    align-self: stretch;
+    width: clamp(300px, 1vw, 500px);
+    display: flex;
+    align-items: center;
+
+    .bet-section {
+        padding: 0.4em 0.7em;
+        height: 80%;
+        width: 45%;
+        background-color: var(--clr-dark-3);
+        border: 2px solid var(--clr-dark-2);
+        border-right: 2px solid var(--clr-dark-4);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .spin-btn-container {
+        position: relative;
+        height: 100%;
+        width: 55%;
+        background-color: var(--clr-dark-3);
+        border: 2px solid var(--clr-dark-2);
+        border-left: none;
+    }
+}
+
+.h100 {
+    height: 100%;
+}
+
+.col-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-change-bet-size {
+    width: 15px;
+    height: 15px;
+    /* background-color: #fff; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.btn-bet-up {
+    background-image: url("../img/icons/arrows/arrow_up.svg");
+}
+
+.btn-bet-down {
+    background-image: url("../img/icons/arrows/arrow_down.svg");
+}
+
+.spin-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(100px, 1vw, 100px);
+    height: clamp(100px, 1vw, 100px);
+    border: 3px solid var(--clr-dark-2);
+    background-color: var(--clr-dark-3);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle {
+        width: 70%;
+        height: 70%;
+        /*         border: 5px solid white;
+        border-radius: 50%; */
+        background-image: url("../img/icons//spin/spin3.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(-30deg);
+        transition: 0.4s ease;
+    }
+}
+
+.spin-btn:hover {
+    .circle {
+        transform: rotate(20deg);
+    }
+}
+
+.game-container {
+    position: relative;
+    width: clamp(700px, 100%, 900px);
+    height: clamp(450px, 100vw, 550px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 3em;
+    padding: 2em 0;
+    background-color: var(--clr-bg-red);
+}
+
+.game-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/bg/bg2.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(17%);
+}
+
+.btn {
+    padding: 0.7em 1.4em;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-bonus-buy {
+    margin-top: 3em;
+    background-color: #44cf6c;
+    color: black;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.hide {
+    display: none;
+}
+
+section.paytable {
+    margin-top: 10em;
+}
+
+.paytable-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 4em;
+    row-gap: 4em;
+    padding: 2em clamp(2em, 10vw, 10em);
+
+    .symbol-paytable {
+        width: 220px;
+        padding: 2em 0;
+        background-color: var(--clr-bg-600);
+        display: flex;
+        flex-direction: column;
+        row-gap: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .symbol-img {
+            width: 80px;
+            height: 80px;
+        }
+
+        h3 {
+            font-size: 1.7rem;
+            color: white;
+        }
+
+        div {
+            color: white;
+        }
+
+        p {
+            font-size: 1.4rem;
+        }
+
+        p.desc{
+            font-size: 1rem;
+            padding: 0 2em;
+            text-align: center;
+        }
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.mt3em{
+    margin-top: 3em;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <h1>Slot machine</h1>
+    <h3>Bonus - sticky wilds with random multiplier</h3>
+    <div class="space-between">
+        <div class="left">
+            <div class="game-info">
+                <h2>Biggest win: $<span data-biggest-win></span></h2>
+                <h2>Biggest Bonus buy win: $<span data-bonus-buys-biggest-win></span></h2>
+                <h2 class="hide">Bonuses: <span data-bonus-buys-amount></span></h2>
+                <h2 class="hide">Spins: <span data-spins></span></h2>
+                <h2 class="hide">Total wager: <span data-total-wager></span></h2>
+            </div>
+            <div class="game-options">
+                <div class="btn btn-bonus-buy" onclick="bonusBuyBtn()">Buy Bonus</div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="center">
+                <div class="game-container">
+                    <canvas id="canvas"></canvas>
+                    <div class="slot-bet-section">
+                        <div>
+                            <div class="money-title">Balance</div>
+                            <div class="money-am">$<span data-current-balance>6000</span></div>
+                        </div>
+                        <div>
+                            <div class="money-title">Win</div>
+                            <div class="money-am">$<span data-last-win>6000</span></div>
+                        </div>
+                        <div class="bet-container">
+                            <div class="bet-section">
+                                <div>
+                                    <div class="money-title">Bet</div>
+                                    <div class="money-am">$<span data-bet-size>10</span></div>
+                                </div>
+                                <div class="h100 col-between">
+                                    <div class="btn-change-bet-size btn-bet-up" onclick="changeBet('up')"></div>
+                                    <div class="btn-change-bet-size btn-bet-down" onclick="changeBet('down')"></div>
+                                </div>
+                            </div>
+                            <div class="spin-btn-container">
+                                <div class="spin-btn" onclick="spin()">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bonus-container hide">
+                            <div class="bonus-info-item">
+                                <div>Total winnings $<span data-bonus-total-win></span></div>
+                            </div>
+                            <div class="bonus-info-item">
+                                <div>
+                                    Freespins
+                                    <span data-freespins-left></span>/<span data-freespins-total></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right"></div>
+    </div>
+    <section class="paytable">
+        <h2>Paytable</h2>
+        <div class="paytable-container mt3em" data-paytable="special"></div>
+        <div class="paytable-container" data-paytable="normal">
+            <div class="symbol-paytable">
+                <img class="symbol-img" src="" alt="symbol">
+                <h3 class="symbol-title"></h3>
+                <div>
+                    <p><span class="bold">3:</span> 5x</p>
+                    <p>4: 5x</p>
+                    <p>5: 5x</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        <a href="https://www.vecteezy.com/free-vector/chinese-background">Chinese Background Vectors by Vecteezy</a>
+    </div>
+    <div>
+        <a href="https://www.flaticon.com/free-icons/dragon" title="dragon icons">Dragon icons created by Smashicons -
+            Flaticon</a>
+    </div>
+
+
+    <script src="utility.js"></script>
+
+    <script src="./symbols/symbol.js"></script>
+    <script src="./symbols/ten.js"></script>
+    <script src="./symbols/jack.js"></script>
+    <script src="./symbols/queen.js"></script>
+    <script src="./symbols/king.js"></script>
+    <script src="./symbols/ace.js"></script>
+    <script src="./symbols/coin.js"></script>
+    <script src="./symbols/chicken.js"></script>
+    <script src="./symbols/yinyang.js"></script>
+    <script src="./symbols/lamp.js"></script>
+    <script src="./symbols/dragon.js"></script>
+    <script src="./symbols/bonus.js"></script>
+    <script src="./symbols/wild.js"></script>
+    <script src="reel.js"></script>
+    <script src="./slotMachine.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>
